@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import React from "react";
 
 import "./globals.css";
+import NavBar from "@/components/navigation/navbar";
+import NextThemeProvider from "@/context/Theme";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -31,9 +33,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning>
       <body className={`${inter.className} ${eduSA.variable} antialiased`}>
-        {children}
+        <NextThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <NavBar />
+          {children}
+        </NextThemeProvider>
       </body>
     </html>
   );
