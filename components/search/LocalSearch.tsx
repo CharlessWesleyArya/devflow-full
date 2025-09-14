@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { formUrlQuery, removeKeysFormUrlQuery } from "@/lib/url";
+import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/url";
 
 import { Input } from "../ui/input";
 
@@ -35,7 +35,7 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherclass }: Props) => {
         router.push(newUrl, { scroll: false });
       } else {
         if (pathname === route) {
-          const newUrl = removeKeysFormUrlQuery({
+          const newUrl = removeKeysFromUrlQuery({
             params: searchParams.toString(),
             keysToRemove: ["query"],
           });

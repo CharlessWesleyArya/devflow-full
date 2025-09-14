@@ -21,7 +21,7 @@ export const formUrlQuery = ({ params, key, value }: UrlQueryParams) => {
   });
 };
 
-export const removeKeysFormUrlQuery = ({
+export const removeKeysFromUrlQuery = ({
   params,
   keysToRemove,
 }: RemoveUrlQueryParams) => {
