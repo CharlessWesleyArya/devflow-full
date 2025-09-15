@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -15,7 +16,12 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "Javascript" },
     ],
-    author: { _id: "1", name: "Wesley" },
+    author: {
+      _id: "1",
+      name: "Wesley",
+      image:
+        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR6zcMFxzxEKpKled2S3Z6Hv-aFRZyovfDmf9Ed925yTRcfchQ-JQoOyjqxpJbmprrwRC5Odvbjs8yT5ykglL9W7h0VywfeD3iEzaEHIQ",
+    },
     upvotes: 10,
     answers: 2,
     views: 100,
@@ -25,15 +31,17 @@ const questions = [
     _id: "2",
     title: "How to learn Javascript",
     description: "I want to learn Javscript, but js don't like me",
-    tags: [
-      { _id: "1", name: "React" },
-      { _id: "2", name: "Javascript" },
-    ],
-    author: { _id: "1", name: "Wesley" },
+    tags: [{ _id: "1", name: "Javascript" }],
+    author: {
+      _id: "1",
+      name: "Wesley",
+      image:
+        "https://blogapi.perrian.com/wp-content/uploads/2024/03/cropped-mrunal-thakur-nosepin.jpeg",
+    },
     upvotes: 12,
     answers: 5,
     views: 60,
-    createdAt: new Date(),
+    createdAt: new Date("2025-08-03"),
   },
 ];
 
@@ -75,7 +83,10 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard
+            key={question._id}
+            question={question}
+          />
         ))}
       </div>
     </>
