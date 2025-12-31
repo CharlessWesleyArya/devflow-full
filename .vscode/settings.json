@@ -36,5 +36,11 @@
     "**/Thumbs.db": true,
     "next-env.d.ts": true
   },
-  "scm.providerCountBadge": "visible"
+  "scm.providerCountBadge": "visible",
+  "mdb.presetConnections": [
+    {
+      "name": "Preset Connection",
+      "connectionString": "mongodb://localhost:27017"
+    }
+  ]
 }
